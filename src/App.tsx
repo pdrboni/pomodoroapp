@@ -1,9 +1,10 @@
+import { PomodoroTimer } from "./components/pomodoro-timer"
 
 function App() {
 
   return (
     <>
-      <p>Hello world!</p>
+      <PomodoroTimer defaultPomodoroTime={1500}/>
     </>
   )
 }
