@@ -7,4 +7,97 @@
 
 body {
   font-family: sans-serif;
+  background: #4a125a;
+  transition: background-color 500ms ease-in-out;
+  line-height: 1.5;
+}
+
+#root {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.working {
+  background: #9d76a7;
+}
+
+.hidden {
+  display: none;
+}
+
+.pomodoro {
+  border: #7f448e 4px solid;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: #9d76a7;
+}
+
+.centralized-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.pomodoro h2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+.pomodoro .timer {
+  font-size: 96px;
+}
+
+.button {
+  background: none;
+  border: #7f448e 3px solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 20px;
+  color: #9d76a7;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #7f448e;
+  transition: background-color 200ms ease-in-out;
+  color: #4a125a;
+  cursor: pointer;
+}
+
+.details {
+  margin-top: 15px;
+  color: #9d76a7;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.working .pomodoro button {
+  color: #5c236b;
+  background: #9d76a7;
+  border: #5c236b 2px solid;
+}
+
+.working .pomodoro button:hover {
+  color: #9d76a7;
+  background: #5c236b;
+  border: #5c236b 2px solid;
+}
+
+.working .pomodoro {
+  border: #5c236b 4px solid;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  color: #5c236b;
+}
+
+.working .details {
+  margin-top: 15px;
+  color: #5c236b;
 }

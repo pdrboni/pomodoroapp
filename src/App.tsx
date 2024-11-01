@@ -1,11 +1,29 @@
 import { PomodoroTimer } from "./components/pomodoro-timer"
 
-function App() {
+interface Props {
+  className: string;
+}
+
+function App(props: Props) {
+
 
   return (
-    <>
-      <PomodoroTimer defaultPomodoroTime={1500}/>
-    </>
+    <div className={props.className}>
+      <PomodoroTimer
+        pomodoroTime={1500}
+        shortRestTime={300}
+        longRestTime={900}
+        cycles={4}
+      />
+    <div className="details">
+      <p>iueshafiuehwviuhaewv</p>
+      <p>iueshafiuehwviuhaewv</p>
+      <p>iueshafiuehwviuhaewv</p>
+      <p>iueshafiuehwviuhaewv</p>
+      <p>iueshafiuehwviuhaewv</p>
+    </div>
+    
+  </div>
   )
 }
 
