@@ -13,7 +13,7 @@ body {
 }
 
 #root {
-  max-width: 640px;
+  max-width: 740px;
   margin: 0 auto;
 }
 
@@ -100,4 +100,111 @@ body {
 .working .details {
   margin-top: 15px;
   color: #5c236b;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.checkbox-custom {
+  appearance: none;
+  border-radius: 4px;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: none; /* Set your custom unselected background color */
+  border: 2px solid #9d76a7; /* Set border color */
+  cursor: pointer;
+}
+
+.checkbox-custom:checked {
+  background-color: #9d76a7; /* Set your custom selected background color */
+}
+
+.checkbox-custom:checked::after {
+  content: "✔"; /* Unicode for a checkmark */
+  color: #5c236b;
+  font-size: 12px;
+  position: relative;
+  top: -20%;
+  left: 10%;
+}
+
+.working .checkbox-custom {
+  appearance: none;
+  border-radius: 4px;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: none; /* Set your custom unselected background color */
+  border: 2px solid #5c236b; /* Set border color */
+  cursor: pointer;
+}
+
+.working .checkbox-custom:checked::after {
+  content: "✔"; /* Unicode for a checkmark */
+  color: #9d76a7;
+  font-size: 12px;
+  position: relative;
+  top: -20%;
+  left: 10%;
+}
+
+.working .checkbox-custom:checked {
+  background-color: #5c236b; /* Set your custom selected background color */
+}
+
+.button-add-details {
+  transition: background-color 200ms ease-in-out;
+  margin-right: 10px;
+  width: 40px;
+  font-size: 15px;
+  padding: 2px 4px;
+  background: none;
+  border: #7f448e 2px solid;
+  border-radius: 5px;
+  color: #9d76a7;
+  cursor: pointer;
+}
+
+.button-add-details:hover {
+  background: #7f448e;
+  color: #4a125a;
+}
+
+.working .button-add-details {
+  border: #5c236b 2px solid;
+  color: #5c236b;
+}
+.working .button-add-details:hover {
+  background: #5c236b;
+  color: #9d76a7;
+}
+
+.input-add-task {
+  background: none;
+  color: #9d76a7;
+  border: 0;
+  border-bottom: 2px solid #9d76a7;
+}
+
+.input-add-task::placeholder {
+  color: #9d76a7;
+}
+
+.working .input-add-task::placeholder {
+  color: #5c236b;
+}
+
+.working .input-add-task {
+  color: #5c236b;
+  border-bottom: 2px solid #5c236b;
+}
+
+.history-container {
+  max-height: 200px;
+  overflow: auto;
 }
