@@ -27,6 +27,7 @@ export function PomodoroTimer(props: Props): JSX.Element {
   const [resting, setResting] = useState(false);
   const [longRestingTime, setLongRestingTime] = useState(props.longRestTime);
   const [shortRestingTime, setShortRestingTime] = useState(props.shortRestTime);
+  const [workingTime, setWorkingTime] = useState(props.pomodoroTime);
   const [mainTime, setMainTime] = useState(props.pomodoroTime);
   const [cyclesQtdManager, setCyclesQtdManager] = useState(new Array(props.cycles).fill(true));
   const dispatchStatus = useStatusDispatch(); // Get the dispatch function
@@ -37,24 +38,21 @@ export function PomodoroTimer(props: Props): JSX.Element {
   }, timeCounting ? 1000 : null);
 
   const configureWork = () => {
+    setMainTime(workingTime)
     setTimeCounting(true);
     setWorking(true);
     setResting(false);
-    setMainTime(mainTime)
     dispatchStatus({ type: 'work-running'})
     audioStartWorking.play();
   }
 
   const configureRest = (long: boolean) => {
-    setTimeCounting(true);
+    setMainTime(long ? longRestingTime : shortRestingTime)
+    dispatchStatus(long ? { type: 'long-running'} : { type: 'short-running'})
     setWorking(false);
     setResting(true);
-    setMainTime(long ? longRestingTime : shortRestingTime)
+    setTimeCounting(true);
     audioStopWorking.play();
-  }
-
-  const handleSetTimes = () => {
-    
   }
 
   useEffect(() => {
@@ -90,35 +88,29 @@ export function PomodoroTimer(props: Props): JSX.Element {
   return (
     <>
       <div className="pomodoro">
-
-      <div style={{display: "flex", marginBottom: "15px"}}>
-        <button 
-          className="button-add-details"
-          onClick={handleSetTimes}
-        >
-          Set
-        </button>
+      <p>Set the times in minutes</p>
+      <div style={{display: "flex", marginBottom: "15px", marginTop:"15px"}}>
         <input 
           type="text" 
-          className="input-add-task"
-          style={{marginRight: "15px"}}
-          placeholder="Working time (in minutes)"
-          onChange={(e) => {setMainTime(Number(e.target.value)*60)}}
+          className="input-time"
+          style={{marginRight: "15px", width: "120px"}}
+          placeholder="Working time"
+          onChange={(e) => {setWorkingTime(Number(e.target.value)*60)}}
         />
 
         <input 
           type="text" 
-          className="input-add-task"
-          style={{marginRight: "15px", width: "180px"}}
-          placeholder="Long resting time (in minutes)"
+          className="input-time"
+          style={{marginRight: "15px", width: "120px"}}
+          placeholder="Long resting time"
           onChange={(e) => {setLongRestingTime(Number(e.target.value)*60)}}
         />
 
         <input 
           type="text" 
-          className="input-add-task"
-          placeholder="Short resting time (in minutes)"
-          style={{marginRight: "15px", width: "180px"}}
+          className="input-time"
+          placeholder="Short resting time"
+          style={{marginRight: "15px", width: "120px"}}
           onChange={(e) => {setShortRestingTime(Number(e.target.value)*60)}}
         />
       </div>

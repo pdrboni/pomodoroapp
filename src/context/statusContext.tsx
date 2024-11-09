@@ -82,31 +82,31 @@ function pomodoroInfoReducer(state: PomodoroInfoState, action: Action): Pomodoro
 function statusReducer(state: StatusState, action: Action): StatusState {
   switch (action.type) {
     case 'work-running': {
-      return { ...state, workRunning: true };
+      return { ...initialStatus, workRunning: true };
     }
     case 'work-stopped': {
-      return { ...state, workStopped: true };
+      return { ...initialStatus, workStopped: true };
     }
     case 'work-resumed': {
-      return { ...state, workResumed: true };
+      return { ...initialStatus, workResumed: true };
     }
     case 'short-running': {
-      return { ...state, shortRunning: true };
+      return { ...initialStatus, shortRunning: true };
     }
     case 'short-stopped': {
-      return { ...state, shortStopped: true };
+      return { ...initialStatus, shortStopped: true };
     }
     case 'short-resumed': {
-      return { ...state, shortResumed: true };
+      return { ...initialStatus, shortResumed: true };
     }
     case 'long-running': {
-      return { ...state, longRunning: true };
+      return { ...initialStatus, longRunning: true };
     }
     case 'long-stopped': {
-      return { ...state, longStopped: true };
+      return { ...initialStatus, longStopped: true };
     }
     case 'long-resumed': {
-      return { ...state, longResumed: true };
+      return { ...initialStatus, longResumed: true };
     }
     default: {
       throw new Error(`Unknown action`);

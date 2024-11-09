@@ -7,9 +7,12 @@
 
 body {
   font-family: sans-serif;
-  background: #4a125a;
-  transition: background-color 500ms ease-in-out;
+  background-image: url('./images/astronaut.gif'), url('./images/astronaut.gif');
+  background-size: 100%, 100%;  /* First image 50% width and full height, same for second */
+  background-position: left -75vh top 0px, right -75vh top 0px;  /* First image stays left; adjust the second image */
+  background-repeat: no-repeat;
   line-height: 1.5;
+  height: 100%;
 }
 
 #root {
@@ -18,7 +21,12 @@ body {
 }
 
 .working {
-  background: #9d76a7;
+  background-image: url('./images/astronaut.gif'), url('./images/astronaut.gif');
+  background-size: 100%, 100%;  /* First image 50% width and full height, same for second */
+  background-position: left -75vh top 0px, right -75vh top 0px;  /* First image stays left; adjust the second image */
+  background-repeat: no-repeat;
+  line-height: 1.5;
+  height: 100%;
 }
 
 .hidden {
@@ -33,12 +41,36 @@ body {
   color: #9d76a7;
 }
 
+.working .centralized-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(246, 149, 255, 0.623);
+  backdrop-filter: blur(15px);
+  border-radius: 5px; /* this doesn't work */
+  border-width: 4px;
+  border-style: solid;
+  padding: 5px;
+  transition: background-color 500ms ease-in-out;
+  border-image: linear-gradient(to right, #9d76a7 0%, #4a125a  100%) 1;
+}
+
 .centralized-parent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: rgba(81, 0, 88, 0.623);
+  backdrop-filter: blur(15px);
+  border-radius: 5px; /* this doesn't work */
+  border-width: 4px;
+  border-style: solid;
+  padding: 5px;
+  transition: background-color 500ms ease-in-out;
+  border-image: linear-gradient(to right, #9d76a7 0%, #4a125a  100%) 1;
 }
 
 .pomodoro h2 {
@@ -202,6 +234,26 @@ body {
 .working .input-add-task {
   color: #5c236b;
   border-bottom: 2px solid #5c236b;
+}
+
+.working .input-time {
+  color: #5c236b;
+  border-bottom: 2px solid #5c236b;
+}
+
+.input-time {
+  background: none;
+  color: #9d76a7;
+  border: 0;
+  border-bottom: 2px solid #9d76a7;
+}
+
+.input-time::placeholder {
+  color: #9d76a7;
+}
+
+.working .input-time::placeholder {
+  color: #5c236b;
 }
 
 .history-container {

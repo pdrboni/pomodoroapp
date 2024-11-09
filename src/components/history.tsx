@@ -18,8 +18,6 @@ export function History(props: Props): JSX.Element {
     const trueStatus = Object.keys(obj).filter(
       (key) => (obj as StatusState)[key as keyof StatusState] === true);
 
-      console.log(trueStatus);
-
     switch (trueStatus[0]) {
       case 'workRunning': {
         setHistoryArray((prev) => [...prev, 'Working cycle started'])
@@ -71,7 +69,7 @@ export function History(props: Props): JSX.Element {
     <div className={props.className}>
       <p>History:</p>
       <div className="history-container">
-        {historyArray.map((hist) => { return ( <p>{hist}</p> ) })}
+        {historyArray.map((hist, index) => { return ( <p key={index}>{hist}</p> ) })}
       </div>
 
       <p style={{marginTop: "10px"}}>Cycles info:</p>
