@@ -1,6 +1,7 @@
-import { PomodoroTimer } from "./components/pomodoro-timer"
+import { PomodoroTimer } from "./components/pomodoro-timer";
 import { StudyDetails } from "./components/studyDetails";
 import { History } from "./components/history";
+import { PomodoroInfo } from "./components/pomodoroInfo";
 import StatusProvider, { PomodoroInfoProvider } from "./context/statusContext";
 
 interface Props {
@@ -8,8 +9,6 @@ interface Props {
 }
 
 function App(props: Props) {
-
-
   return (
     <PomodoroInfoProvider>
       <StatusProvider>
@@ -20,19 +19,21 @@ function App(props: Props) {
             longRestTime={9}
             cycles={4}
           />
-        <div className="details-container">
-          <div className="details history">
-            <History />
-          </div>
-          <div className="details study">
-            <StudyDetails />
+          <div className="details-container">
+            <div className="details history">
+              <History />
+            </div>
+            <div className="details study">
+              <StudyDetails />
+            </div>
+            <div className="details study">
+              <PomodoroInfo />
+            </div>
           </div>
         </div>
-        
-      </div>
       </StatusProvider>
     </PomodoroInfoProvider>
-  )
+  );
 }
 
-export default App
+export default App;

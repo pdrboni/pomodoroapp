@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer, Dispatch, ReactNode } from 'react';
-import { secondsToTime } from '../utils/secondsToTime';
 
 const StatusContext = createContext<StatusState | null>(null);
 const StatusDispatchContext = createContext<Dispatch<Action> | undefined>(undefined);
@@ -79,7 +78,7 @@ function pomodoroInfoReducer(state: PomodoroInfoState, action: Action): Pomodoro
   }
 }
 
-function statusReducer(state: StatusState, action: Action): StatusState {
+function statusReducer(_state: StatusState, action: Action): StatusState {
   switch (action.type) {
     case 'work-running': {
       return { ...initialStatus, workRunning: true };

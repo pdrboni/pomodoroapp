@@ -7,9 +7,9 @@
 
 body {
   font-family: sans-serif;
-  background-image: url('./images/astronaut.gif'), url('./images/astronaut.gif');
-  background-size: 100%, 100%;  /* First image 50% width and full height, same for second */
-  background-position: left -75vh top 0px, right -75vh top 0px;  /* First image stays left; adjust the second image */
+  background-image: url("./images/astronaut.gif"), url("./images/astronaut.gif");
+  background-size: 100%, 100%; /* First image 50% width and full height, same for second */
+  background-position: left -75vh top 0px, right -75vh top 0px; /* First image stays left; adjust the second image */
   background-repeat: no-repeat;
   line-height: 1.5;
   height: 100%;
@@ -21,9 +21,9 @@ body {
 }
 
 .working {
-  background-image: url('./images/astronaut.gif'), url('./images/astronaut.gif');
-  background-size: 100%, 100%;  /* First image 50% width and full height, same for second */
-  background-position: left -75vh top 0px, right -75vh top 0px;  /* First image stays left; adjust the second image */
+  background-image: url("./images/astronaut.gif"), url("./images/astronaut.gif");
+  background-size: 100%, 100%; /* First image 50% width and full height, same for second */
+  background-position: left -75vh top 0px, right -75vh top 0px; /* First image stays left; adjust the second image */
   background-repeat: no-repeat;
   line-height: 1.5;
   height: 100%;
@@ -54,7 +54,7 @@ body {
   border-style: solid;
   padding: 5px;
   transition: background-color 500ms ease-in-out;
-  border-image: linear-gradient(to right, #9d76a7 0%, #4a125a  100%) 1;
+  border-image: linear-gradient(to right, #9d76a7 0%, #4a125a 100%) 1;
 }
 
 .centralized-parent {
@@ -70,7 +70,7 @@ body {
   border-style: solid;
   padding: 5px;
   transition: background-color 500ms ease-in-out;
-  border-image: linear-gradient(to right, #9d76a7 0%, #4a125a  100%) 1;
+  border-image: linear-gradient(to right, #9d76a7 0%, #4a125a 100%) 1;
 }
 
 .pomodoro h2 {
@@ -111,7 +111,6 @@ body {
 
 .working .pomodoro button {
   color: #5c236b;
-  background: #9d76a7;
   border: #5c236b 2px solid;
 }
 
@@ -130,14 +129,17 @@ body {
 }
 
 .working .details {
-  margin-top: 15px;
   color: #5c236b;
+  border: 3px solid #5c236b;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .details-container {
   display: flex;
   flex-direction: row;
-  width: 400px;
+  width: 100%;
+  padding: 0 20px;
   justify-content: space-between;
 }
 
@@ -257,6 +259,32 @@ body {
 }
 
 .history-container {
-  max-height: 200px;
+  max-height: 150px;
+  min-width: 170px;
   overflow: auto;
+}
+
+.history-container::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.history-container::-webkit-scrollbar-track {
+  background: none; /* Background of the scrollbar track */
+}
+
+.history-container::-webkit-scrollbar-thumb {
+  background-color: #9d76a7; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Roundness of the handle */
+}
+
+.history-container::-webkit-scrollbar-thumb:hover {
+  background: #7f448e; /* Darker color on hover */
+}
+
+.working .history-container::-webkit-scrollbar-thumb {
+  background-color: #5c236b; /* Color of the scrollbar handle */
+}
+
+.working .history-container::-webkit-scrollbar-thumb:hover {
+  background: #4a125a; /* Darker color on hover */
 }
